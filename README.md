@@ -1,3 +1,3 @@
 # dotfiles
 
-Just my dofiles 😒
+Just my dotfiles 😒
