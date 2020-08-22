@@ -1,3 +1,8 @@
-# dotfiles
+# Just my dotfiles 
 
-Just my dotfiles 😒
+![Screenshot1](screenshot1.png "Just a screenshot") 
+
+
+![Screenshot2](screenshot2.png "Another screenshot")
+
+Feel free to take what you want ;)
