@@ -3,29 +3,29 @@
 # AUTOSTART
 sxhkd &
 setxkbmap pl
-export GDK_SCALE=2
 /home/eryk/.config/polybar/launch.sh
 #/home/eryk/.fehbg
 nitrogen --restore
 picom -b &
+#nm-applet &
 
 # MONITORS
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 # CONFIGURATION
 bspc config border_width                  3
-bspc config window_gap                    18
-bspc config top_padding		              45
+bspc config window_gap                    15
+bspc config top_padding		              48
 bspc config split_ratio                   0.52
 bspc config left_padding                  0
 bspc config right_padding                 0
 bspc config single_monocle                true
 bspc config click_to_focus                true
 bspc config split_ratio                   0.50
-bspc config borderless_monocle            true
+bspc config borderless_monocle            false
 bspc config gapless_monocle               true
 bspc config focus_by_distance             false
-bspc config focus_follows_pointer         false
+bspc config focus_follows_pointer         true
 bspc config history_aware_focus           false
 bspc config remove_disabled_monitors      true
 bspc config merge_overlapping_monitors    true

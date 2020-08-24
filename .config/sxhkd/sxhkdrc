@@ -8,7 +8,7 @@ super + Return
 
 # launch rofi
 {super + @space,XF86Search}
-	rofi -combi-modi window,drun,ssh -show-icons -font "Hack Regular 14" -show combi
+	rofi -combi-modi window,drun,ssh -show-icons -font "Hack Regular 16" -show combi
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -136,8 +136,8 @@ XF86AudioMute
 XF86AudioMicMute
 	amixer set Capture toggle
 
-Print
-	scrot 'screenshot_from_%H:%M:%S_%d-%m-%Y.png' -e 'mv $f ~/Pictures/Screenshots
+super + Print
+	scrot 'screenshot_from_%H:%M:%S_%d-%m-%Y.png' -e 'mv $f /home/eryk/Pictures/Screenshots/'
 
 XF86MonBrightnessUp
 	light -A 10
@@ -145,6 +145,6 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	light -U 10
 
-super + Print
+super + shift + Print
 	flameshot gui
 

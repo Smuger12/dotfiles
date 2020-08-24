@@ -19,7 +19,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #3B3B3B
+background = #282828
 background-alt = #525252
 ;foreground = ${xrdb:color7:#222}
 foreground = #D5C4A1
@@ -31,7 +31,7 @@ alert = #bd2c40
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 45
+height = 48
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -47,25 +47,27 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 4
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=18;1
 font-1 = unifont:fontformat=truetype:size=18:antialias=false;1
-font-2 = siji:pixelsize=18;1
-font-3 = FontAwesome5Free:style=Solid:pixelsize=19;1
-font-4 = FontAwesome5Brands:style=Regular:pixelsize=19;1
+font-2 = siji:pixelsize=20;1
+font-3 = FontAwesome5Free:style=Solid:pixelsize=20;1
+font-4 = FontAwesome5Brands:style=Regular:pixelsize=20;1
 font-5 = MaterialDesignIcons:pixelsize=20;1
 
 modules-left = bspwm xwindow
 modules-center = 
-modules-right = update pulseaudio wlan eth battery time separator powermenu
+modules-right = update pulseaudio wlan eth battery time separator powermenu separator
 
 tray-position = none
 tray-padding = 1
 ;tray-background = #0063ff
+tray-scale = 1.0
+tray-maxsize = 26
 
 wm-restack = bspwm
 
@@ -115,7 +117,7 @@ label-indicator-off-capslock = "Caps off "
 [module/xwindow]
 type = internal/xwindow
 label = "|   %title%"
-label-maxlen = 120
+label-maxlen = 80
 ;format-background = ${colors.background-alt}
 
 [module/bspwm]
@@ -230,7 +232,7 @@ scroll-up = amixer set Master 5%+
 scroll-down = amixer set Master 5%-
 
 label-muted = "  muted"
-label-muted-foreground = #666
+#label-muted-foreground = #666
 
 [module/alsa]
 type = internal/alsa

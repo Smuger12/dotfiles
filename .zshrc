@@ -10,6 +10,12 @@ else
    PS1="%B%{$fg[red]%}[%{$fg[red]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}#%b "
 fi
 
+############
+### PATH ###
+############
+
+export PATH=~/.local/bin:$PATH
+
 ######################
 ### Enable history ###
 ######################
@@ -22,7 +28,7 @@ setopt HIST_REDUCE_BLANKS
 
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=/home/eryk/.cache/zsh/history
+HISTFILE=~/.cache/zsh/history
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -55,12 +61,10 @@ _comp_options+=(globdots) # include hidden files.
 alias -g ls='exa -alh --group-directories-first --time-style=long-iso --colour=always'
 alias -g p='sudo pacman'
 alias -g c='clear'
-alias -g rezsh='source /home/eryk/.zshrc'
-alias -g zshrc='micro /home/eryk/.zshrc'
+alias -g rezsh='source ~/.zshrc'
+alias -g zshrc='micro ~/.zshrc'
 alias -g yt-dl='youtube-dl'
 alias -g off='sudo shutdown now'
-alias -g ufetch='./home/eryk/shell_scripts/ufetch.sh'
-alias -g pacwall-gruvbox='./home/eryk/shell_scripts/pacwall-gruvbox.sh'
 alias -g re='sudo reboot'
 alias -g grep='grep --color=auto'
 
