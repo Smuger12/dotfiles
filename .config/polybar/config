@@ -19,7 +19,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #282828
+background = #313131
 background-alt = #525252
 ;foreground = ${xrdb:color7:#222}
 foreground = #D5C4A1
@@ -31,11 +31,12 @@ alert = #bd2c40
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 48
+height = 50
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
 fixed-center = true
+separator = |
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -46,11 +47,11 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 1
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = fixed:pixelsize=18;1
 font-1 = unifont:fontformat=truetype:size=18:antialias=false;1
@@ -59,14 +60,14 @@ font-3 = FontAwesome5Free:style=Solid:pixelsize=20;1
 font-4 = FontAwesome5Brands:style=Regular:pixelsize=20;1
 font-5 = MaterialDesignIcons:pixelsize=20;1
 
-modules-left = bspwm xwindow
-modules-center = 
-modules-right = update pulseaudio wlan eth battery time separator powermenu separator
+modules-left = bspwm
+modules-center = update cpu temp ram
+modules-right = volume wifi eth battery time
 
 tray-position = none
 tray-padding = 1
 ;tray-background = #0063ff
-tray-scale = 1.0
+tray-scale = 1
 tray-maxsize = 26
 
 wm-restack = bspwm
@@ -75,19 +76,34 @@ override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/separator]
-type = custom/text
-content = |
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = "  "
+label = %percentage%%
+
+[module/ram]
+type = internal/memory
+interval = 1
+format-prefix = "  "
+label = %percentage_used%%
+
+[module/temp]
+type = custom/script
+interval = 1
+exec = sensors | grep Package | awk '{print $4}'
+label = %output%
+format-prefix = " "
 
 [module/update]
 type = custom/script
-interval = 10
+interval = 60
 exec = checkupdates | wc -l
 label = "%output% Updates"
+format-prefix = " "
 click-left = kitty sudo pacman -Syu
 format-prefix-foreground = ${colors.foreground}
 
@@ -116,34 +132,30 @@ label-indicator-off-capslock = "Caps off "
 
 [module/xwindow]
 type = internal/xwindow
-label = "|   %title%"
+label = %title%
 label-maxlen = 80
 ;format-background = ${colors.background-alt}
 
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-; Separator in between workspaces
-; label-separator = |
-
-label-song-maxlen = 25
-label-song-ellipsis = true
+;label-separator = |
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -168,14 +180,13 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-[module/wlan]
+[module/wifi]
 type = internal/network
-;interface = wlp1s0
 interface = wlan0
 interval = 1
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+;format-connected-underline = #9f78e1
 label-connected = "%signal%% %essid%"
 
 format-disconnected =
@@ -222,8 +233,8 @@ format-underline = #0a6cf5
 
 label = "%time% %date%"
 
-[module/pulseaudio]
-type = internal/pulseaudio
+[module/volume]
+type = internal/alsa
 
 format-volume = <label-volume>
 label-volume = " %percentage%%"
@@ -232,35 +243,7 @@ scroll-up = amixer set Master 5%+
 scroll-down = amixer set Master 5%-
 
 label-muted = "  muted"
-#label-muted-foreground = #666
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+label-muted-foreground = #666
 
 [module/battery]
 type = internal/battery
@@ -295,10 +278,9 @@ animation-charging-framerate = 800
 
 [module/powermenu]
 type = custom/menu
-
 expand-right = true
-
 format-spacing = 1
+;format = "| <label-toggle><menu> |"
 
 label-open =  
 ;label-open-foreground = #C4241E
@@ -340,9 +322,9 @@ menu-4-1-exec = menu-open-0
 screenchange-reload = true
 ;compositing-background = xor
 ;compositing-background = screen
-;compositing-foreground = source
+;compositing-foreground = screen
 ;compositing-border = over
-;pseudo-transparency = false
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 5

@@ -11,4 +11,4 @@ cp -r ~/.config/sxhkd $git_config
 cp -r ~/.config/alacritty $git_config
 cp -r ~/.config/neofetch $git_config
 cp -r ~/.zshrc $git_home
-cp -r ~/scripts $git_home
+cp -r ~/my_scripts $git_home

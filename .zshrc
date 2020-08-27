@@ -58,15 +58,19 @@ _comp_options+=(globdots) # include hidden files.
 ### My aliases ###
 ##################
 
-alias -g ls='exa -alh --group-directories-first --time-style=long-iso --colour=always'
-alias -g p='sudo pacman'
-alias -g c='clear'
-alias -g rezsh='source ~/.zshrc'
-alias -g zshrc='micro ~/.zshrc'
-alias -g yt-dl='youtube-dl'
-alias -g off='sudo shutdown now'
-alias -g re='sudo reboot'
-alias -g grep='grep --color=auto'
+alias ls='exa -alh --group-directories-first --time-style=long-iso --colour=always'
+alias p='sudo pacman'
+alias c='clear'
+alias rezsh='source ~/.zshrc'
+alias zshrc='micro ~/.zshrc'
+alias yt-dl='youtube-dl'
+alias off='sudo shutdown now'
+alias re='sudo reboot'
+alias grep='grep --color=auto'
+alias binds='micro ~/.config/sxhkd/sxhkdrc'
+alias poly='micro ~/.config/polybar/config'
+alias bspwm='micro ~/.config/bspwm/bspwmrc'
+alias pico='micro ~/.config/picom/picom.conf'
 
 ##########################
 ### Other useful stuff ###

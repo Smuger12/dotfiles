@@ -10,17 +10,21 @@ super + Return
 {super + @space,XF86Search}
 	rofi -combi-modi window,drun,ssh -show-icons -font "Hack Regular 16" -show combi
 
-# make sxhkd reload its configuration files:
+# rofi power menu
 super + Escape
-	pkill -USR1 -x sxhkd
+	rofi -show power-menu -font "Hack Regular 16" -lines 4 -modi power-menu:~/scripts/rofi-power-menu
+
+# make sxhkd reload its configuration files:
+#super + Escape
+#	pkill -USR1 -x sxhkd
 
 #
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + shift + {Escape,r}
-	bspc {quit,wm -r}
+# restart bspwm
+super + shift + r
+	bspc wm -r && pkill -USR1 -x sxhkd
 
 # close and kill
 super + {_,shift + }q
