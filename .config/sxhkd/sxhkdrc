@@ -12,7 +12,7 @@ super + Return
 
 # rofi power menu
 super + Escape
-	rofi -show power-menu -font "Hack Regular 16" -lines 4 -modi power-menu:~/scripts/rofi-power-menu
+	rofi -show power-menu -font "Hack Regular 16" -lines 4 -modi power-menu:~/my_scripts/rofi-power-menu
 
 # make sxhkd reload its configuration files:
 #super + Escape
