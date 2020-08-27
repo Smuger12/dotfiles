@@ -5,4 +5,4 @@
 ![Screenshot2](screenshot2.png "Another screenshot")
 
 Feel free to take what you want :D
-BTW I'm to lazy to update screenshots :P
+(I'm to lazy to update screenshots :P)
