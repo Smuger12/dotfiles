@@ -8,9 +8,13 @@ super + Return
 
 # launch rofi
 {super + @space,XF86Search}
-	rofi -combi-modi window,drun,ssh -show-icons -font "Hack Regular 16" -show combi
+	rofi -show drun -show-icons -font "Hack Regular 16"
 
-# rofi power menu
+# rofi - window switcher
+super + w
+	rofi -show window -lines 6 -show-icons -font "Hack Regular 16"
+
+# rofi - power menu
 super + Escape
 	rofi -show power-menu -font "Hack Regular 16" -lines 4 -modi power-menu:~/my_scripts/rofi-power-menu
 
@@ -141,13 +145,13 @@ XF86AudioMicMute
 	amixer set Capture toggle
 
 super + Print
-	scrot 'screenshot_from_%H:%M:%S_%d-%m-%Y.png' -e 'mv $f /home/eryk/Pictures/Screenshots/'
-
+	flameshot full --path ~/Pictures/Screenshots/
+	
 XF86MonBrightnessUp
-	light -A 10
+	light -A 5
 
 XF86MonBrightnessDown
-	light -U 10
+	light -U 5
 
 super + shift + Print
 	flameshot gui

@@ -1,4 +1,3 @@
-
 ;==========================================================
 ;
 ;
@@ -18,62 +17,50 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #313131
+background = #282828
 background-alt = #525252
-;foreground = ${xrdb:color7:#222}
-foreground = #D5C4A1
-foreground-alt = #555
+foreground = #ebdbb2
+foreground-alt = #928374
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
 [bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
+;monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 50
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 0%
+offset-y = 0%
 radius = 0
+bottom = false
 fixed-center = true
 separator = |
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 1
-padding-right = 2
+padding-left = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = fixed:pixelsize=18;1
-font-1 = unifont:fontformat=truetype:size=18:antialias=false;1
-font-2 = siji:pixelsize=20;1
-font-3 = FontAwesome5Free:style=Solid:pixelsize=20;1
-font-4 = FontAwesome5Brands:style=Regular:pixelsize=20;1
-font-5 = MaterialDesignIcons:pixelsize=20;1
+font-0 = monospace:style=Regular:pixelsize=18;1
+font-1 = FontAwesome5Free:style=Solid:pixelsize=20;1
+font-2 = FontAwesome5Brands:style=Regular:pixelsize=20;1
+font-3 = MaterialDesignIcons:pixelsize=20;1
 
-modules-left = bspwm
-modules-center = update cpu temp ram
+modules-left = cpu temp ram update
+modules-center = bspwm
 modules-right = volume wifi eth battery time
 
 tray-position = none
 tray-padding = 1
-;tray-background = #0063ff
 tray-scale = 1
 tray-maxsize = 26
 
 wm-restack = bspwm
-
-override-redirect = true
-
+override-redirect = false
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 cursor-click = pointer
@@ -84,12 +71,14 @@ type = internal/cpu
 interval = 1
 format-prefix = "  "
 label = %percentage%%
+format-prefix-foreground = #d79921
 
 [module/ram]
 type = internal/memory
 interval = 1
 format-prefix = "  "
 label = %percentage_used%%
+format-prefix-foreground = #98971a
 
 [module/temp]
 type = custom/script
@@ -97,6 +86,7 @@ interval = 1
 exec = sensors | grep Package | awk '{print $4}'
 label = %output%
 format-prefix = " "
+format-prefix-foreground = #cc241d
 
 [module/update]
 type = custom/script
@@ -104,16 +94,15 @@ interval = 60
 exec = checkupdates | wc -l
 label = "%output% Updates"
 format-prefix = " "
-click-left = kitty sudo pacman -Syu
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = #427b58
 
 [module/kernel]
 type = custom/script
-interval = 10
+interval = 120
 exec = uname -r
 label = %output%
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = #f9f5d7
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -141,7 +130,7 @@ type = internal/bspwm
 
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+;label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %name%
@@ -160,20 +149,8 @@ label-empty-padding = 2
 [module/xbacklight]
 type = internal/xbacklight
 
-;format = <label> <bar>
 format = <label> 
 label =  %percentage%%
-
-;bar-width = 10
-;bar-indicator = |
-;bar-indicator-foreground = #fff
-;bar-indicator-font = 2
-;bar-fill = ─
-;bar-fill-font = 2
-;bar-fill-foreground = #9f78e1
-;bar-empty = ─
-;bar-empty-font = 2
-;bar-empty-foreground = ${colors.foreground-alt}
 
 [module/bl]
 inherit = module/xbacklight
@@ -199,17 +176,16 @@ ramp-signal-0 = 󰤟
 ramp-signal-1 = 󰤢
 ramp-signal-2 = 󰤥
 ramp-signal-3 = 󰤨
-ramp-signal-foreground = ${colors.foreground}
+ramp-signal-foreground = #458588
 
 [module/eth]
 type = internal/network
 interface = enp0s31f6
 interval = 1
 
-format-connected-underline = #55aa55
 format-connected-prefix = "󰈀 "
-format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
+format-connected-prefix-foreground = #689d6a
 
 format-disconnected = 
 ;format-disconnected = <label-disconnected>
@@ -222,28 +198,31 @@ type = internal/date
 interval = 1
 
 date = 
-date-alt = " %d/%m/%Y"
+date-alt = "%d/%m/%Y"
 
-time = " %H:%M"
-time-alt = " %H:%M:%S"
+time = "%H:%M"
+time-alt = "%H:%M:%S"
 
-format-prefix = 󰅐
-format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+format-prefix = "󰅐 " 
+format-prefix-foreground = #b57614
+;format-underline = #0a6cf5
 
-label = "%time% %date%"
+label = "%time%  %date%"
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
-format-volume = <label-volume>
-label-volume = " %percentage%%"
-label-volume-foreground = ${root.foreground}
+format-volume = <ramp-volume> <label-volume>
+label-volume = "%percentage%%"
 scroll-up = amixer set Master 5%+
 scroll-down = amixer set Master 5%-
 
 label-muted = "  muted"
-label-muted-foreground = #666
+label-muted-foreground = ${colors.foreground-alt}
+
+ramp-volume-0 =  
+ramp-volume-1 =  
+ramp-volume-foreground = #d65d0e
 
 [module/battery]
 type = internal/battery
@@ -252,22 +231,20 @@ adapter = AC
 full-at = 100
 poll-interval = 1
 
-time-format = %H:%M
 label-charging = " %percentage%% (%consumption%W)" 
 label-discharging = " %percentage%% (%consumption%W, %time%)"
-label-full = "Batery full!"
+label-full = FULL
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = <label-full>
+format-full = <ramp-capacity> <label-full>
 
 ramp-capacity-0 = 
-;ramp-capacity-0-foreground = #f53c3c
 ramp-capacity-1 = 
-;ramp-capacity-1-foreground = #ffa900
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-4 =  
+ramp-capacity-foreground = #b16286
 
 animation-charging-0 = 
 animation-charging-1 = 

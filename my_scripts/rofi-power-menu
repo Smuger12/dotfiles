@@ -35,10 +35,10 @@ icons[suspend]=""
 icons[hibernate]="\uf7c9"
 icons[reboot]=""
 icons[shutdown]="\uf011"
-icons[cancel]="\u00d7"
+icons[cancel]=""
 
 declare -A actions
-actions[lockscreen]="betterlockscreen -l"
+actions[lockscreen]="betterlockscreen --lock"
 #actions[switchuser]="???"
 actions[logout]="bspc quit"
 actions[suspend]="systemctl suspend"
