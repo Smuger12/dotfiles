@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # AUTOSTART
 sxhkd &
@@ -7,9 +7,10 @@ setxkbmap pl
 #~/.fehbg
 nitrogen --restore
 picom -b &
+xfce4-power-manager &
 
 # WORKSPACES
-bspc monitor -d TERM WEB CHAT FILES EXTRA
+bspc monitor -d TERM WEB CHAT MEDIA FILES EXTRA
 
 # CONFIGURATION
 bspc config border_width                  4
@@ -21,8 +22,8 @@ bspc config bottom_padding                0
 bspc config single_monocle                true
 bspc config click_to_focus                true
 bspc config split_ratio                   0.50
-bspc config borderless_monocle            false
-bspc config gapless_monocle               false
+bspc config borderless_monocle            true
+bspc config gapless_monocle               true
 bspc config focus_by_distance             false
 bspc config focus_follows_pointer         true
 bspc config history_aware_focus           false
@@ -42,5 +43,9 @@ bspc config presel_feedback_color	      "#458588"
 bspc rule -a Galculator state=floating
 bspc rule -a Gksu-properties state=floating
 bspc rule -a Brave-browser desktop=WEB
-bspc rule -a Pcmanfm desktop=FILES
+bspc rule -a firefox desktop=WEB
+bspc rule -a Thunar desktop=FILES
 bspc rule -a discord desktop=CHAT
+bspc rule -a Pidgin desktop=CHAT
+bspc rule -a vlc desktop=MEDIA
+bspc rule -a Deadbeef desktop=MEDIA

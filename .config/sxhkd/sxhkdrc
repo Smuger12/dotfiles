@@ -18,10 +18,6 @@ super + w
 super + Escape
 	rofi -show power-menu -font "Hack Regular 16" -lines 4 -modi power-menu:~/my_scripts/rofi-power-menu
 
-# make sxhkd reload its configuration files:
-#super + Escape
-#	pkill -USR1 -x sxhkd
-
 #
 # bspwm hotkeys
 #
@@ -30,9 +26,9 @@ super + Escape
 super + shift + r
 	bspc wm -r && pkill -USR1 -x sxhkd
 
-# close and kill
-super + {_,shift + }q
-	bspc node -{c,k}
+# close a window
+super + shift + q
+	bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m
@@ -63,7 +59,7 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
@@ -97,7 +93,7 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
@@ -117,11 +113,11 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+super + alt + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+super + alt + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
@@ -145,7 +141,7 @@ XF86AudioMicMute
 	amixer set Capture toggle
 
 super + Print
-	flameshot full --path ~/Pictures/Screenshots/
+	flameshot full -p ~/Pictures/Screenshots/
 	
 XF86MonBrightnessUp
 	light -A 5

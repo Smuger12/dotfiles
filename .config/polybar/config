@@ -69,14 +69,14 @@ cursor-scroll = ns-resize
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = "  "
+format-prefix = " "
 label = %percentage%%
 format-prefix-foreground = #d79921
 
 [module/ram]
 type = internal/memory
 interval = 1
-format-prefix = "  "
+format-prefix = " "
 label = %percentage_used%%
 format-prefix-foreground = #98971a
 
@@ -90,8 +90,8 @@ format-prefix-foreground = #cc241d
 
 [module/update]
 type = custom/script
-interval = 60
-exec = checkupdates | wc -l
+interval = 30
+exec = yay -Qu | wc -l
 label = "%output% Updates"
 format-prefix = " "
 format-prefix-foreground = #427b58
@@ -197,32 +197,33 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = 
-date-alt = "%d/%m/%Y"
+;date =
+date-alt = %d/%m/%Y
 
-time = "%H:%M"
-time-alt = "%H:%M:%S"
+time = %H:%M
+time-alt = %H:%M:%S
 
-format-prefix = "󰅐 " 
+format-prefix = "󰅐 "
 format-prefix-foreground = #b57614
 ;format-underline = #0a6cf5
 
-label = "%time%  %date%"
+label = %time% %date%
 
 [module/volume]
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 label-volume = "%percentage%%"
-scroll-up = amixer set Master 5%+
-scroll-down = amixer set Master 5%-
-
-label-muted = "  muted"
-label-muted-foreground = ${colors.foreground-alt}
 
 ramp-volume-0 =  
 ramp-volume-1 =  
 ramp-volume-foreground = #d65d0e
+
+label-muted = "  muted"
+label-muted-foreground = ${colors.foreground-alt}
+
+scroll-up = amixer set Master 5%+
+scroll-down = amixer set Master 5%-
 
 [module/battery]
 type = internal/battery
@@ -231,9 +232,10 @@ adapter = AC
 full-at = 100
 poll-interval = 1
 
+time-format = %H:%S
 label-charging = " %percentage%% (%consumption%W)" 
 label-discharging = " %percentage%% (%consumption%W, %time%)"
-label-full = FULL
+label-full = %percentage%%
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
@@ -252,6 +254,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 800
+animation-charging-foreground = #b16286
 
 [module/powermenu]
 type = custom/menu
