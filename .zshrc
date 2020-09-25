@@ -45,7 +45,7 @@ compinit
 _comp_options+=(globdots) # include hidden files.
 
 # correction
-#setopt CORRECT
+setopt CORRECT
 #setopt CORRECT_ALL
 
 ##################
@@ -53,13 +53,12 @@ _comp_options+=(globdots) # include hidden files.
 ##################
 
 alias ls='exa -alh --group-directories-first --time-style=long-iso --colour=always'
-alias p='sudo pacman'
+alias pacman='sudo pacman'
 alias c='clear'
 alias rezsh='source ~/.zshrc'
 alias zshrc='micro ~/.zshrc'
-alias yt-dl='youtube-dl'
-alias off='sudo shutdown now'
-alias re='sudo reboot'
+alias off='systemctl poweroff'
+alias re='systemctl reboot'
 alias grep='grep --color=auto'
 alias binds='micro ~/.config/sxhkd/sxhkdrc'
 alias poly='micro ~/.config/polybar/config'
@@ -71,4 +70,3 @@ alias pico='micro ~/.config/picom/picom.conf'
 ##########################
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/doc/pkgfile/command-not-found.zsh
