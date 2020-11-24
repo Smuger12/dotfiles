@@ -5,11 +5,13 @@
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-############
-### PATH ###
-############
+#####################
+### ENV VARIABLES ###
+#####################
 
 export PATH=~/.local/bin:$PATH
+# flatpak stuff
+export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share:/usr/share
 
 ######################
 ### Enable history ###
