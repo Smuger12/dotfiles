@@ -11,7 +11,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 
 export PATH=~/.local/bin:$PATH
 # flatpak stuff
-export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share:/usr/share
+# export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share:/usr/share
 
 ######################
 ### Enable history ###
@@ -47,7 +47,7 @@ compinit
 _comp_options+=(globdots) # include hidden files.
 
 # correction
-setopt CORRECT
+#setopt CORRECT
 #setopt CORRECT_ALL
 
 ##################
@@ -67,8 +67,8 @@ alias poly='micro ~/.config/polybar/config'
 alias bspwm='micro ~/.config/bspwm/bspwmrc'
 alias pico='micro ~/.config/picom/picom.conf'
 
-##########################
-### Other useful stuff ###
-##########################
+###############
+### Plugins ###
+###############
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
