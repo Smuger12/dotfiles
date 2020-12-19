@@ -33,11 +33,13 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
-##################
-### Auto stuff ###
-##################
+####################
+### Useful stuff ###
+####################
 
 setopt AUTO_CD # auto cd
+
+stty stop undef	# Disable ctrl-s to freeze terminal.
 
 # tab complete
 autoload -U compinit
@@ -62,6 +64,8 @@ alias zshrc='micro ~/.zshrc'
 alias off='systemctl poweroff'
 alias re='systemctl reboot'
 alias grep='grep --color=auto'
+alias ipa='ip --color=always address'
+alias myip-'curl ipinfo.io/ip'
 alias binds='micro ~/.config/sxhkd/sxhkdrc'
 alias poly='micro ~/.config/polybar/config'
 alias bspwm='micro ~/.config/bspwm/bspwmrc'
