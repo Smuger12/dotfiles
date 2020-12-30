@@ -1,3 +1,3 @@
 https://github.com/mateosss/matter
 
-./matter.py -i arch folder-cog arch arch cog restart power -ff /usr/share/fonts/TTF/Hack-Regular.ttf -fn Hack_Regular -fs 24 -bg 242424 -fg white -hl blue
+./matter.py -i arch folder-cog arch arch cog restart power -ff /usr/share/fonts/TTF/Hack-Regular.ttf -fn Hack_Regular -fs 24 -bg 242424 -fg white -hl blue -so
