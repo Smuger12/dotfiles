@@ -10,6 +10,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 #############################
 
 export PATH=~/.local/bin:$PATH
+#export EDITOR=/usr/bin/micro
 # flatpak stuff
 # export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share:/usr/share
 
@@ -25,7 +26,7 @@ setopt HIST_REDUCE_BLANKS
 
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/zsh-history
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
