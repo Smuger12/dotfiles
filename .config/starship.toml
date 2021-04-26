@@ -17,3 +17,9 @@ show_always = true
 ssh_only = false
 format = "on [$hostname](bold purple) "
 disabled = false
+
+[directory]
+format = "in [$path]($style) [$read_only]($read_only_style)"
+style = "bold cyan"
+read_only = "[READ ONLY]"
+read_only_style = "red"
