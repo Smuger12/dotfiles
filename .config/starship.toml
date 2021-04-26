@@ -3,8 +3,8 @@
 add_newline = false
 
 [character]                           
-success_symbol = "[>>>](bold green)"
-error_symbol = "[>>](bold green)[>](bold red)"
+success_symbol = "[>>>](green)"
+error_symbol = "[>>](green)[>](red)"
 
 [username]
 style_user = "white bold"
