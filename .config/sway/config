@@ -19,14 +19,14 @@ set $right Right
 set $term alacritty
 
 # Your preferred application launcher
-set $menu wofi --dmenu --show run
+set $menu wofi --show drun
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-
 output eDP-1 scale 1.70
+
 #
 # Example configuration:
 #
@@ -63,7 +63,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -139,7 +139,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+ctrl+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -180,5 +180,17 @@ bindsym $mod+r mode "resize"
 bar {
 		swaybar_command waybar
 }
+
+#
+# Gaps and window borders:
+#
+gaps inner 8
+gaps outer 5
+default_border pixel 8 # Disable title bars
+
+# Color for border, text, stuff in sway
+# Set Decorations               border         background      text            indicator       child border
+client.focused                  #ffffff        #000000         #ffffff         #ffffff         #ffffff
+client.unfocused                #000000        #000000         #ffffff         #000000         #000000
 
 include /etc/sway/config.d/*
