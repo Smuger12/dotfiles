@@ -1,9 +1,9 @@
 # Just my dotfiles ;)
 
-BSPWM rice:
+My (old) BSPWM rice:
 
-![Screenshot1](screenshot.png) 
+![Screenshot-bspwm](screenshot-bspwm.png) 
 
-Sway rice: WIP
+My *new* Sway rice: WIP
 <br><br><br>
 Feel free to take what you want :D
