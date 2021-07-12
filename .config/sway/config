@@ -23,7 +23,7 @@ set $menu nwg-drawer -fm $fm -term $term
 #set $menu nwgdmenu -r 30 -ha r -va t
 
 # Your preferred exit menu
-set $exit nwgbar
+set $exit nwgbar -b 2e3440
 
 # Your preferred file manager
 set $fm nautilus
