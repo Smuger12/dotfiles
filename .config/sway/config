@@ -19,7 +19,7 @@ set $right Right
 set $term alacritty
 
 # Your preferred application launcher
-set $menu nwg-drawer 
+set $menu nwg-drawer -fm $fm -term $term
 #set $menu nwgdmenu -r 30 -ha r -va t
 
 # Your preferred exit menu
@@ -69,7 +69,7 @@ exec_always export XDG_CURRENT_DESKTOP=Unity
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+m exec $menu
+    bindsym $mod+space exec $menu
 
     # Start your file manager
     bindsym $mod+shift+f exec $fm
