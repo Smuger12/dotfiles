@@ -6,6 +6,6 @@
 <br><br><br>
 ### My (old) Gruvbox BSPWM rice:
 
-![screenshot-bspwm](screenshot-bspwm.png) 
-
-Feel free to take what you want :D
+![screenshot-bspwm](screenshot-bspwm.png)
+<br><br>
+#### Feel free to take what you want :D
