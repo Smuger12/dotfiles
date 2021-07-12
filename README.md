@@ -1,9 +1,11 @@
 # Just my dotfiles ;)
 
-My (old) Gruvbox BSPWM rice:
+### My *new* Nord Sway rice:
 
-![Screenshot-bspwm](screenshot-bspwm.png) 
-
-My *new* Nord Sway rice: WIP
+![screenshot-bspwm](screenshot-sway.png) 
 <br><br><br>
+### My (old) Gruvbox BSPWM rice:
+
+![screenshot-bspwm](screenshot-bspwm.png) 
+
 Feel free to take what you want :D
