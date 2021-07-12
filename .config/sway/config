@@ -2,6 +2,8 @@
 # Sway config
 #
 
+# Some useful tools for Sway: https://github.com/nwg-piotr
+
 ### Variables
 #
 # Windows/Super key. Use Mod1 for Alt.
@@ -17,7 +19,8 @@ set $right Right
 set $term alacritty
 
 # Your preferred application launcher
-set $menu nwgdmenu -r 30 -ha r -va t
+set $menu nwg-drawer 
+#set $menu nwgdmenu -r 30 -ha r -va t
 
 # Your preferred exit menu
 set $exit nwgbar
@@ -28,12 +31,18 @@ set $fm nautilus
 # Your preferred browser
 set $browser firefox
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eryk/Pictures/wall/nord-space.jpg fill
-output eDP-1 scale 1.70
+# Theming
+set $gtk-theme 'Nordic-standard-buttons'
+set $icon-theme 'Papirus-Dark'
+set $cursor-theme 'vimix-cursors'
+set $cursor-size 32
 
+### Output configuration
+
+# Wallpaper
+exec ~/.azotebg
+# Display scaling
+output eDP-1 scale 1.70
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Input configuration
@@ -47,11 +56,7 @@ input "type:keyboard" {
 
 ### Autostart
 exec autotiling
-exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Nordic-standard-buttons'  
-exec_always gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-exec_always gsettings set org.gnome.desktop.interface cursor-theme 'vimix-cursors'
 exec_always export XDG_CURRENT_DESKTOP=Unity 
-exec_always export XCURSOR_SIZE=32
 
 ### Key bindings
 #
@@ -205,7 +210,7 @@ bar {
 }
 
 #
-# Gaps and window borders:
+# Theming:
 #
 gaps inner 8
 gaps outer 5
@@ -217,5 +222,13 @@ client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
 client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
+
+# GTK theming
+exec_always gsettings set org.gnome.desktop.interface gtk-theme $gtk-theme  
+exec_always gsettings set org.gnome.desktop.interface icon-theme $icon-theme
+exec_always gsettings set org.gnome.desktop.interface cursor-theme $cursor-theme
+exec_always gsettings set org.gnome.desktop.interface cursor-size $cursor-size
+seat seat0 xcursor_theme $cursor-theme $cursor-size
+
 
 include /etc/sway/config.d/*

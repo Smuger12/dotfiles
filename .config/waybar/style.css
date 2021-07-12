@@ -49,8 +49,8 @@ nord15 #b48ead
     font-size: 14px;
     margin-right: 3px;
     margin-left: 3px;
-    padding-bottom:1px;
-   }
+    padding-bottom: 1px;
+}
 
 window#waybar {
     background:#2e3440;
@@ -75,10 +75,19 @@ window#waybar {
     color: #ebcb8b;
 }
 
-#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature, #backlight, #network, #pulseaudio, #mode, #tray, #window {
+
+#clock, #taskbar button, #taskbar button.active, #battery, #cpu, #memory,#idle_inhibitor, #temperature, #backlight, #network, #pulseaudio, #mode, #tray, #window {
     padding: 0 3px;
     border-bottom: 2px;
     border-style: solid;
+}
+
+#taskbar button {
+	border-color: #5e81ac;
+}
+
+#taskbar button.active {
+	border-color: #eceff4;
 }
  
 /* -----------------------------------------------------------------------------
