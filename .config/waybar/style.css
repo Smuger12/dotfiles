@@ -76,7 +76,7 @@ window#waybar {
 }
 
 
-#clock, #taskbar button, #taskbar button.active, #battery, #cpu, #memory,#idle_inhibitor, #temperature, #backlight, #network, #pulseaudio, #mode, #tray, #window {
+#custom-weather, #clock, #taskbar button, #taskbar button.active, #battery, #cpu, #memory,#idle_inhibitor, #temperature, #backlight, #network, #pulseaudio, #mode, #tray, #window {
     padding: 0 3px;
     border-bottom: 2px;
     border-style: solid;
@@ -96,7 +96,7 @@ window#waybar {
 
  
 #clock {
- color: #d08770;
+ 	color: #d08770;
 }
 
 #backlight {
@@ -104,7 +104,7 @@ window#waybar {
 }
 
 #battery {
-    color: #d8dee9;
+    color: #ebcb8b;
 }
 
 #battery.charging {
@@ -129,7 +129,7 @@ window#waybar {
 }
 
 #cpu {
-    color:#a3be8c ;
+    color: #8fbcbb;
 }
 
 #memory {
@@ -137,11 +137,11 @@ window#waybar {
 }
 
 #network.disabled {
-    color:#bf616a;
+    color: #bf616a;
 }
 
 #network{
-    color:#a3be8c;
+    color: #a3be8c;
 }
 
 #network.disconnected {
@@ -173,12 +173,12 @@ window#waybar {
 
 #window{
     border-style: hidden;
-    margin-top:1px;  
+    margin-top: 1px;  
 }    
 #mode{
-    margin-bottom:3px;
+    margin-bottom: 3px;
 }
 
 #custom-keyboard-layout{
-   color:#d08770;
+   color: #d08770;
 }   

@@ -25,6 +25,9 @@ set $menu nwg-drawer -fm $fm -term $term
 # Your preferred exit menu
 set $exit nwgbar -b 2e3440
 
+# Your preferred lock screen
+set $lock ~/.config/sway/lock.sh
+
 # Your preferred file manager
 set $fm nautilus
 
@@ -70,7 +73,7 @@ exec blueman-tray
 #
 # Basics:
 #
-    # Start a terminal
+	# Start a terminal
     bindsym $mod+Return exec $term
 
     # Kill focused window
@@ -97,6 +100,9 @@ exec blueman-tray
 
     # Exit Sway
     bindsym $mod+Escape exec $exit
+
+	# Lock srcreen 
+    bindsym $mod+shift+l exec $lock
 
     # Function keys
     bindsym XF86AudioRaiseVolume exec amixer set Master 5%+

@@ -6,7 +6,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["cpu", "memory", "battery", "backlight", "network", "pulseaudio", "tray", "clock"], 
+    "modules-right": ["custom/weather", "cpu", "memory", "battery",  "network", "pulseaudio", "tray", "clock"], 
     
  // Modules configuration
  
@@ -27,6 +27,11 @@
 		"10": "10",
         }
     },
+
+    "custom/weather": {
+    	"exec": "curl 'https://wttr.in/?format=1'",
+    	"interval": 30
+  	},
 
     "wlr/taskbar": {
         "format": "{icon}",
