@@ -2,10 +2,10 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 25,
+    "height": 28,
     //"width": 1350, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "wlr/taskbar", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": ["cpu", "memory", "battery", "backlight",  "network", "pulseaudio", "clock", "tray"], 
     
  // Modules configuration
@@ -46,8 +46,8 @@
         "format": "{}"
     },
     "tray": {
-        "icon-size": 16,
-        "spacing": 5
+        "icon-size": 22,
+        "spacing": 4
     },
     "clock": {
         "tooltip-format": "{:%A %B %d %Y | %H:%M}",
@@ -91,7 +91,7 @@
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format": "⚠ Disabled",
         "format-wifi": " {essid}",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠ Disconnected",
         "on-click": "alacritty -e nmtui"
     },

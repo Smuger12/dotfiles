@@ -5,7 +5,7 @@
 # Some useful tools for Sway: https://github.com/nwg-piotr
 
 ### Variables
-#
+
 # Windows/Super key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -33,13 +33,14 @@ set $browser firefox
 
 # Theming
 set $gtk-theme 'Nordic-standard-buttons'
+set $gtk-font 'Cantarell 11'
 set $icon-theme 'Papirus-Dark'
 set $cursor-theme 'vimix-cursors'
 set $cursor-size 32
 
 ### Output configuration
 
-# Wallpaper
+# Wallpaper (https://github.com/nwg-piotr/azote)
 exec ~/.azotebg
 # Display scaling
 output eDP-1 scale 1.70
@@ -56,7 +57,7 @@ input "type:keyboard" {
 
 ### Autostart
 exec autotiling
-exec_always export XDG_CURRENT_DESKTOP=Unity 
+exec blueman-tray
 
 ### Key bindings
 #
@@ -224,7 +225,8 @@ client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
 # GTK theming
-exec_always gsettings set org.gnome.desktop.interface gtk-theme $gtk-theme  
+exec_always gsettings set org.gnome.desktop.interface gtk-theme $gtk-theme
+exec_always gsettings set org.gnome.desktop.interface font-name $gtk-font  
 exec_always gsettings set org.gnome.desktop.interface icon-theme $icon-theme
 exec_always gsettings set org.gnome.desktop.interface cursor-theme $cursor-theme
 exec_always gsettings set org.gnome.desktop.interface cursor-size $cursor-size
