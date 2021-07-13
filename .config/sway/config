@@ -40,10 +40,11 @@ set $cursor-size 32
 
 ### Output configuration
 
-# Wallpaper (https://github.com/nwg-piotr/azote)
+# Set wallpaper (https://github.com/nwg-piotr/azote)
 exec ~/.azotebg
+
 # Display scaling
-output eDP-1 scale 1.70
+output eDP-1 scale 1.6
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Input configuration
@@ -55,8 +56,14 @@ input "type:keyboard" {
 	xkb_variant pl
 }
 
+input type:touchpad {
+	tap enabled
+	dwt disabled
+}
+
 ### Autostart
 exec autotiling
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec blueman-tray
 
 ### Key bindings
@@ -207,15 +214,24 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 bar {
+		# Use waybar as status bar
 		swaybar_command waybar
 }
 
 #
 # Theming:
 #
-gaps inner 8
-gaps outer 5
-default_border pixel 8 # Disable title bars and show only borders
+
+# Gaps between windows and screen edges
+gaps inner 10
+gaps outer 10
+
+# Hide borders if there is only one window in workspace
+smart_gaps on
+hide_edge_borders --i3 smart_no_gaps
+
+# Disable title bars and show only borders
+default_border pixel 3
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border

@@ -8,8 +8,8 @@ alias ipa="ip --color=always address"
 alias myip="curl ipinfo.io/ip"
 alias off="systemctl poweroff"
 alias re="systemctl reboot"
-alias pacman="sudo pacman"
 alias c="clear"
+alias ls="exa -alh --group-directories-first --time-style=long-iso --colour=always"
 
 # launch starship prompt
 starship init fish | source
