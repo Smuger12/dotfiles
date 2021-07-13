@@ -67,7 +67,7 @@ input type:touchpad {
 ### Autostart
 exec autotiling
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec blueman-tray
+#exec blueman-tray
 
 ### Key bindings
 #
