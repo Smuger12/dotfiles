@@ -9,7 +9,7 @@ alias myip="curl ipinfo.io/ip"
 alias off="systemctl poweroff"
 alias re="systemctl reboot"
 alias c="clear"
-alias ls="exa -alh --group-directories-first --time-style=long-iso --colour=always"
+alias exa="exa -alh --group-directories-first --time-style=long-iso --colour=always"
 
 # launch starship prompt
 starship init fish | source
