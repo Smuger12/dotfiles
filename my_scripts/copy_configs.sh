@@ -1,7 +1,7 @@
 #!/bin/bash
 
-git_config=~/git-repo/dotfiles/.config
-git_home=~/git-repo/dotfiles
+git_config=~/dotfiles-repo/.config
+git_home=~/dotfiles-repo
 
 # cp -rv ~/.config/picom $git_config
 # cp -rv ~/.config/polybar $git_config
@@ -17,6 +17,6 @@ cp -rv ~/.config/waybar/* $git_config/waybar/
 cp -rv ~/.config/fish/config.fish $git_config/fish/
 cp -rv ~/.config/starship.toml $git_config
 cp -rv ~/.config/nwg-* $git_config
-sudo cp -rv /etc/environment $git_home/etc/environment
+# sudo cp -rv /etc/environment $git_home/etc/environment
 
 echo "All Done!"
