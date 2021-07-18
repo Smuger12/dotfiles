@@ -16,6 +16,7 @@ alias off="systemctl poweroff"
 alias re="systemctl reboot"
 alias c="clear"
 alias exa="exa -alh --group-directories-first --time-style=long-iso --colour=always"
+alias ls="ls -a --group-directories-first --color=always"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # launch starship prompt
