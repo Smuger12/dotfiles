@@ -1,7 +1,7 @@
 #!/bin/bash
 
-git_config=~/dotfiles-repo/.config
-git_home=~/dotfiles-repo
+git_config=~/dotfiles/.config
+git_home=~/dotfiles
 
 # cp -rv ~/.config/picom $git_config
 # cp -rv ~/.config/polybar $git_config
@@ -10,7 +10,6 @@ git_home=~/dotfiles-repo
 # cp -rv ~/.config/sxhkd $git_config
 # cp -rv ~/.config/neofetch $git_config
 # cp -rv ~/.zshrc $git_home
-# cp -rv ~/my_scripts/* $git_home/my_scripts
 #cp -rv ~/.config/alacritty/alacritty.yml $git_config/alacritty/alacritty-nord.yml
 #cp -rv ~/.config/sway/* $git_config/sway/
 #cp -rv ~/.config/waybar/* $git_config/waybar/
